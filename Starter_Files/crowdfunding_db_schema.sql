@@ -1,9 +1,9 @@
 -- if table exists, drop table so we can make new ones
 
-DROP TABLE IF EXISTS CATEGORY
-DROP TABLE IF EXISTS SUBCATEGORY
-DROP TABLE IF EXISTS CONTACTS
-DROP TABLE IF EXISTS CAMPAIGN
+DROP TABLE IF EXISTS CAMPAIGNS;
+DROP TABLE IF EXISTS CATEGORIES;
+DROP TABLE IF EXISTS SUBCATEGORIES;
+DROP TABLE IF EXISTS CONTACTS;
 
 
 -- Make the category table
@@ -30,7 +30,7 @@ CREATE TABLE CONTACTS (
     last_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
         PRIMARY KEY(contact_id)
-)
+);
 
 -- Make the campaign table
 
@@ -38,7 +38,7 @@ CREATE TABLE CAMPAIGNS (
     cf_id BIGINT NOT NULL,
     contact_id BIGINT NOT NULL,
     company_name VARCHAR(100) NOT NULL,
-    'description' TEXT NOT NULL, 
+    description TEXT NOT NULL, 
     goal NUMERIC(17, 2) NOT NULL,
     pledged NUMERIC(17, 2) NOT NULL,
     outcome VARCHAR(11) NOT NULL,
@@ -53,31 +53,31 @@ CREATE TABLE CAMPAIGNS (
         FOREIGN KEY (contact_id) REFERENCES CONTACTS(contact_id),
         FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id),
         FOREIGN KEY (subcategory_id) REFERENCES SUBCATEGORIES(subcategory_id)
-)
+);
 
 ----- TABLE SELECTION QUERIES ---------------------
 
-select * from campaign;
+select * from campaigns;
 
-select * from category;
+select * from categories;
 
-select * from subcategory;
+select * from subcategories;
 
 select * from contacts;
 
-select count(DISTINCT contact_id) from campaign;
+select count(DISTINCT contact_id) from campaigns;
 
 select ca.cf_id, ca.contact_id, co.email, co.first_name, co.last_name
-from campaign ca 
+from campaigns ca 
 join contacts co
 on ca.contact_id = co.contact_id;
 
 select ca.cf_id, ca.category_id, ct.category
-from campaign ca 
-join category ct
+from campaigns ca 
+join categories ct
 on ca.category_id = ct.category_id;
 
 select ca.cf_id, ca.subcategory_id, sc.subcategory
-from campaign ca 
-join subcategory sc
-on ca.subcategory_id = sc.subcategory_id
+from campaigns ca 
+join subcategories sc
+on ca.subcategory_id = sc.subcategory_id;

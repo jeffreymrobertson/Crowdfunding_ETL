@@ -55,3 +55,29 @@ CREATE TABLE CAMPAIGNS (
         FOREIGN KEY (subcategory_id) REFERENCES SUBCATEGORIES(subcategory_id)
 )
 
+----- TABLE SELECTION QUERIES ---------------------
+
+select * from campaign;
+
+select * from category;
+
+select * from subcategory;
+
+select * from contacts;
+
+select count(DISTINCT contact_id) from campaign;
+
+select ca.cf_id, ca.contact_id, co.email, co.first_name, co.last_name
+from campaign ca 
+join contacts co
+on ca.contact_id = co.contact_id;
+
+select ca.cf_id, ca.category_id, ct.category
+from campaign ca 
+join category ct
+on ca.category_id = ct.category_id;
+
+select ca.cf_id, ca.subcategory_id, sc.subcategory
+from campaign ca 
+join subcategory sc
+on ca.subcategory_id = sc.subcategory_id

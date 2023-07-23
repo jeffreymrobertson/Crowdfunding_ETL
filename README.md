@@ -12,10 +12,13 @@ The purpose for this project is to practice building an ETL pipeline using Pytho
 
 ## Work Allocation
 ### Create the Category and Subcategory DataFrames
-
-### Create the Campaign DataFrame
+- 
 
 ### Create the Contacts DataFrame
+- 
+
+### Create the Campaign DataFrame
+- 
 
 ### Create the Crowdfunding Database
 - Riddhi Mistry

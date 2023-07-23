@@ -16,7 +16,7 @@ Finally, we uploaded the CSV file data into a Postgres database.
 ### Create the Contacts DataFrame
 
 ### Create the Crowdfunding Database
-Riddhi Mistry
+- Riddhi Mistry
 
 
 

@@ -9,10 +9,13 @@ Finally, we uploaded the CSV file data into a Postgres database.
 
 
 ## Work Allocation
-###Create the Category and Subcategory DataFrames
-###Create the Campaign DataFrame
-###Create the Contacts DataFrame
-###Create the Crowdfunding Database
+### Create the Category and Subcategory DataFrames
+
+### Create the Campaign DataFrame
+
+### Create the Contacts DataFrame
+
+### Create the Crowdfunding Database
 Riddhi Mistry
 
 

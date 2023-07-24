@@ -18,7 +18,12 @@ The purpose for this project is to practice building an ETL pipeline using Pytho
 - 
 
 ### Create the Campaign DataFrame
-- 
+1. Rename the column names
+2. Convert the columns goal and pledged frrom objects to floaaats
+3. Check to ensure that  the data types were changed
+4. Convert the launch date and end date into date time format
+5. Merge with the category and subcategory dataframes and drop unneeded columns from the dataframe
+6. Save to csv file
 
 ### Create the Crowdfunding Database
 - Riddhi Mistry

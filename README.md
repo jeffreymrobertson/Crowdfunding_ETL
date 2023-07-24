@@ -18,6 +18,7 @@ The purpose for this project is to practice building an ETL pipeline using Pytho
 - 
 
 ### Create the Campaign DataFrame
+- Jeffrey Robertson
 1. Rename the column names
 2. Convert the columns goal and pledged frrom objects to floaaats
 3. Check to ensure that  the data types were changed

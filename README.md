@@ -16,7 +16,33 @@ The ETL process is a fundamental step in data engineering and analysis, allowing
 
 ## Work Allocation
 ### Create the Category and Subcategory DataFrames
-- 
+- Urja Dudhwala
+
+This section focuses on extracting and transforming the "crowdfunding.xlsx" Excel data to create two essential DataFrames: the "category" DataFrame and the "subcategory" DataFrame. The objective is to create structured DataFrames containing unique identifiers and titles for categories and subcategories.
+
+__Category DataFrame__
+
+-Data Extraction:_
+Import the "crowdfunding.xlsx" file into a DataFrame to access the raw data.
+
+-Data Transformation for Category DataFrame:_
+Extract unique category titles from the DataFrame and create a new DataFrame with a "category_id" column, containing entries going sequentially from "cat1" to "catn," where n is the number of unique categories.
+The DataFrame will also have a "category" column that contains only the category titles.
+
+_Data Export:_
+Export the transformed "category" DataFrame as "category.csv" into the GitHub repository.
+
+__Subcategory DataFrame__
+
+_Data Extraction:_
+Import the "crowdfunding.xlsx" file into a DataFrame to access the raw data.
+
+_Data Transformation for Subcategory DataFrame:_
+Extract unique subcategory titles from the DataFrame and create a new DataFrame with a "subcategory_id" column, containing entries going sequentially from "subcat1" to "subcatn," where n is the number of unique subcategories.
+The DataFrame will also have a "subcategory" column that contains only the subcategory titles.
+
+_Data Export:_
+Export the transformed "subcategory" DataFrame as "subcategory.csv" into the GitHub repository.
 
 ### Create the Contacts DataFrame
 - Sree Rama Pavan Vannemsetti

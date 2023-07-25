@@ -19,7 +19,47 @@ The ETL process is a fundamental step in data engineering and analysis, allowing
 - 
 
 ### Create the Contacts DataFrame
-- 
+- Sree Rama Pavan Vannemsetti
+
+
+In this section, we will focus on extracting and transforming the contacts data from the "contacts.xlsx" Excel file using two different methods: Option 1 - Python dictionary methods, and Option 2 - regular expressions. The primary goal is to create a well-structured "contacts" DataFrame containing "contact_id," "first_name," "last_name," and "email" information for each contact.
+
+ __Option 1__: __Extracting and Transforming Contacts Data using Python Dictionary Methods__
+ 
+ _Data Extraction:_
+Import the "contacts.xlsx" file into a DataFrame to access the raw data.
+
+_Data Transformation using Python Dictionary Methods:_
+Iterate through the DataFrame, converting each row to a dictionary.
+Within each dictionary, extract the values from the keys using a Python list comprehension and add them to a new list.
+
+_Creating the "contacts" DataFrame:_
+With the extracted data list, create a new DataFrame, resulting in a structured "contacts" DataFrame containing "contact_id," "name," and "email" information.
+
+_Data Cleaning and Transformation:_
+Convert the "contact_id" column to the integer type for consistency.
+Split the "name" column into "first_name" and "last_name" by extracting substrings based on space separation.
+
+_Data Export:_
+Clean and export the transformed "contacts" DataFrame as "contacts.csv" into the GitHub repository.
+
+__Option 2__: __Extracting and Transforming Contacts Data using Regular Expressions__
+
+_Data Extraction:_
+Import the "contacts.xlsx" file into a DataFrame to access the raw data.
+
+_Data Transformation using Regular Expressions:_
+Extract the "contact_id," "name," and "email" columns using regular expressions and create a new DataFrame with the extracted data.
+
+_Data Cleaning and Transformation:_
+Convert the "contact_id" column to the integer type for consistency.
+Split the "name" column into "first_name" and "last_name" by extracting substrings based on space separation.
+
+_Creating the "contacts" DataFrame:_
+With the extracted and transformed data, create a structured "contacts" DataFrame containing "contact_id," "first_name," "last_name," and "email" information.
+
+_Data Export:_
+Clean and export the final "contacts" DataFrame as "contacts.csv" into the GitHub repository.
 
 ### Create the Campaign DataFrame
 - Jeffrey Robertson

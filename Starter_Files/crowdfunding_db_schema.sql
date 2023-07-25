@@ -1,83 +1,42 @@
--- if table exists, drop table so we can make new ones
-
-DROP TABLE IF EXISTS CAMPAIGNS;
-DROP TABLE IF EXISTS CATEGORIES;
-DROP TABLE IF EXISTS SUBCATEGORIES;
-DROP TABLE IF EXISTS CONTACTS;
-
-
 -- Make the category table
-
 CREATE TABLE CATEGORIES (
-    category_id VARCHAR (10) NOT NULL,
-    category VARCHAR (100) NOT NULL,
-        PRIMARY KEY (category_id)
+    category_id VARCHAR(10) NOT NULL PRIMARY KEY,
+    category VARCHAR(100) NOT NULL
 );
-
 -- Make the subcategory table
-
 CREATE TABLE SUBCATEGORIES (
-    subcategory_id VARCHAR (10) NOT NULL,
-    subcategory VARCHAR (100) NOT NULL,
-        PRIMARY KEY (subcategory_id)
+    subcategory_id VARCHAR(10) NOT NULL PRIMARY KEY,
+    subcategory VARCHAR(100) NOT NULL
 );
-
 -- Make the contacts table
-
 CREATE TABLE CONTACTS (
-    contact_id BIGINT NOT NULL,
+    contact_id BIGINT NOT NULL PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-        PRIMARY KEY(contact_id)
+    email VARCHAR(100) NOT NULL
 );
-
--- Make the campaign table
-
+-- Make the campaigns table
 CREATE TABLE CAMPAIGNS (
-    cf_id BIGINT NOT NULL,
-    contact_id BIGINT NOT NULL,
+    cf_id BIGINT NOT NULL PRIMARY KEY,
+    contact_id BIGINT NOT NULL REFERENCES CONTACTS(contact_id),
     company_name VARCHAR(100) NOT NULL,
-    description TEXT NOT NULL, 
-    goal NUMERIC(17, 2) NOT NULL,
-    pledged NUMERIC(17, 2) NOT NULL,
+    description TEXT NOT NULL,
+    goal NUMERIC(17, 2) NOT NULL CHECK (goal >= 0),
+    pledged NUMERIC(17, 2) NOT NULL CHECK (pledged >= 0),
     outcome VARCHAR(11) NOT NULL,
-    backer_count BIGINT NOT NULL,
+    backer_count BIGINT NOT NULL CHECK (backer_count >= 0),
     country VARCHAR(3) NOT NULL,
     currency VARCHAR(5) NOT NULL,
     launch_date DATE NOT NULL,
     end_date DATE NOT NULL,
-    category_id VARCHAR (10) NOT NULL,
-    subcategory_id VARCHAR (10) NOT NULL,
-        PRIMARY KEY (cf_id),
-        FOREIGN KEY (contact_id) REFERENCES CONTACTS(contact_id),
-        FOREIGN KEY (category_id) REFERENCES CATEGORIES(category_id),
-        FOREIGN KEY (subcategory_id) REFERENCES SUBCATEGORIES(subcategory_id)
+    category_id VARCHAR (10) NOT NULL REFERENCES CATEGORIES(category_id),
+    subcategory_id VARCHAR (10) NOT NULL REFERENCES SUBCATEGORIES(subcategory_id)
 );
 
------ TABLE SELECTION QUERIES ---------------------
+SELECT * FROM CATEGORIES;
 
-select * from campaigns;
+SELECT * FROM SUBCATEGORIES;
 
-select * from categories;
+SELECT * FROM CONTACTS;
 
-select * from subcategories;
-
-select * from contacts;
-
-select count(DISTINCT contact_id) from campaigns;
-
-select ca.cf_id, ca.contact_id, co.email, co.first_name, co.last_name
-from campaigns ca 
-join contacts co
-on ca.contact_id = co.contact_id;
-
-select ca.cf_id, ca.category_id, ct.category
-from campaigns ca 
-join categories ct
-on ca.category_id = ct.category_id;
-
-select ca.cf_id, ca.subcategory_id, sc.subcategory
-from campaigns ca 
-join subcategories sc
-on ca.subcategory_id = sc.subcategory_id;
+SELECT * FROM CAMPAIGNS;
